@@ -9,9 +9,14 @@
         .container { max-width: 800px; margin: 0 auto; padding: 40px 30px; background-color: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.05); }
         h2 { color: #1a2433; border-bottom: 3px solid #2b57e5; padding-bottom: 10px; margin-top: 50px; font-size: 1.6em; }
         h3 { color: #2b57e5; margin-top: 40px; font-size: 1.3em; }
-        .hero { background-color: #0f172a; color: white; padding: 50px 30px; text-align: center; border-radius: 8px; margin-bottom: 40px; margin-top: 30px; }
-        .hero h2 { border: none; color: white; margin-top: 0; padding-bottom: 0; font-size: 1.8em; }
-        .hero p { color: #e2e8f0; }
+        
+        /* ヒーローエリアの文字サイズ・レイアウト調整 */
+        .hero { background-color: #0f172a; color: white; padding: 45px 35px; border-radius: 8px; margin-bottom: 40px; margin-top: 30px; text-align: left; }
+        .hero h2 { border: none; color: white; margin-top: 0; padding-bottom: 0; font-size: 1.45em; line-height: 1.6; text-align: center; }
+        .hero h2 span { display: inline-block; }
+        .hero .hero-subtext { text-align: left; margin-top: 25px; font-size: 1.05em; line-height: 1.8; color: #f1f5f9; }
+        .hero .hero-subtext p { margin: 12px 0; }
+        
         .check-list { list-style: none; padding: 0; }
         .check-list li { margin-bottom: 12px; font-weight: bold; font-size: 1.05em; }
         .profile { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; background-color: #f8fafc; padding: 30px; border-radius: 8px; }
@@ -81,10 +86,16 @@
             <p class="highlight-text">HR領域に本当に必要なのは、現場の痛みを理解し、それを経営層の狙いと結びつける「戦略と翻訳」です。</p>
         </div>
 
+        <!-- 修正部分：ヒーローエリア -->
         <div class="hero">
-            <h2>「生きた経験」こそが、AI時代のコンテンツ制作に求められる。<br><br>人事歴30年の視点で、信頼と成果を両立するコンテンツ制作。</h2>
-            <p><strong>最新AIと30年の人事経験。この2つを掛け合わせることで、伝わるだけでなく「成果につながる」人事コンテンツを設計します。</strong></p>
-            <p><strong>採用・定着・組織づくりまで一貫した支援も可能です。</strong></p>
+            <h2>
+                <span>「生きた経験」こそが、AI時代のコンテンツ制作に求められる。</span><br><br>
+                <span>人事歴30年の視点で、信頼と成果を両立するコンテンツ制作。</span>
+            </h2>
+            <div class="hero-subtext">
+                <p><strong>最新AIと30年の人事経験。この2つを掛け合わせることで、伝わるだけでなく「成果につながる」人事コンテンツを設計します。</strong></p>
+                <p><strong>採用・定着・組織づくりまで一貫した支援も可能です。</strong></p>
+            </div>
         </div>
 
         <div class="box">
