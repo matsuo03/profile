@@ -189,6 +189,8 @@ footer { text-align: center; font-size: 13px; color: var(--muted); padding: 28px
   .stats .num { font-size: 28px; }
   section.block { padding: 64px 0; }
   .sec-head h2 { font-size: 24px; }
+  /* 1行（13字）が改行されずに収まるよう、画面幅に合わせて縮める */
+  .contact h2 { font-size: clamp(18px, 6.2vw, 26px); }
   .voices, .episodes, .results, .services { grid-template-columns: 1fr; }
   .timeline::before { left: 7px; }
   .timeline li { grid-template-columns: 1fr; gap: 4px; padding-left: 32px; }
