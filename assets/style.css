@@ -169,6 +169,8 @@ section.alt { background: var(--surface); border-top: 1px solid var(--line); bor
 .contact .btn-primary { font-size: 17px; padding: 16px 40px; }
 .contact .sns { margin-top: 24px; font-size: 15px; }
 .contact .sns a { color: #fff; }
+/* スマホで1文字だけ次行に落ちないよう、意味のまとまりごとに折り返す */
+.nw { display: inline-block; }
 
 footer { text-align: center; font-size: 13px; color: var(--muted); padding: 28px 0; }
 
@@ -332,3 +334,6 @@ section.alt .plan { background: var(--bg); }
 }
 .btn-center { display: table; margin: 16px auto 0; }
 .service h3 small.limit { display: inline-block; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--muted); background: var(--navy-soft); border-radius: 4px; padding: 0 8px; vertical-align: 2px; }
+
+/* 見出しの末尾が1〜2文字だけ次行に残らないよう、行の長さを均等にする */
+h1, h2, h3 { text-wrap: balance; }
