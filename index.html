@@ -1,403 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>松尾 隆弘 - HR・金融特化ライター / AIコンテンツ編集ディレクター</title>
-  
-  <style>
-    /* =========================================
-       ベーススタイル設定
-    ========================================= */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #f7f9fa;
-      color: #333333;
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-      line-height: 1.8;
-      letter-spacing: 0.05em;
-      -webkit-font-smoothing: antialiased;
-      overflow-wrap: break-word; /* 単語の途中での不自然な折り返しを防ぐ */
-    }
-    
-    a {
-      transition: all 0.3s ease;
-    }
-
-    #matsuo-profile-root {
-      padding: 40px 0 80px 0;
-      overflow: hidden;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-      box-sizing: border-box;
-      width: 100%;
-    }
-
-    /* =========================================
-       レスポンシブ（スマホ用）設定
-    ========================================= */
-    @media (max-width: 768px) {
-      /* コンテナのパディング調整 */
-      #matsuo-profile-root { padding: 20px 0 40px 0; }
-      .container { padding: 0 10px; }
-
-      /* ★スマホ時のみテキストを左揃えにして不自然な改行崩れを防ぐ */
-      .sp-text-left { text-align: left !important; }
-
-      /* フォントサイズの最適化（画面に収めるため少し小さく） */
-      .matsuo-pf-fv-catch { font-size: 1.1em !important; }
-      .matsuo-pf-fv-name { font-size: 1.8em !important; }
-      .matsuo-pf-fv-name-en { 
-        display: block !important; 
-        margin-left: 0 !important; 
-        margin-top: 5px !important; 
-        font-size: 0.45em !important; 
-      }
-      .matsuo-pf-section-title { font-size: 1.4em !important; line-height: 1.4 !important; }
-      .matsuo-pf-sub-title { font-size: 1.1em !important; line-height: 1.5 !important; }
-      .matsuo-pf-item-title { font-size: 1.05em !important; line-height: 1.4 !important; }
-
-      /* ボックスの余白調整（左右の余白を減らして文字領域を広げる） */
-      .matsuo-pf-fv-wrap { padding: 40px 15px !important; gap: 20px !important; }
-      .matsuo-pf-box { padding: 30px 15px !important; }
-      .matsuo-pf-profile-img { width: 140px !important; }
-      
-      /* 選ばれる理由・グリッドレイアウト用 */
-      .matsuo-pf-reasons-wrap { flex-direction: column !important; gap: 20px !important; }
-      .matsuo-pf-grid { grid-template-columns: 1fr !important; }
-    }
-
-    /* =========================================
-       装飾用スタイル
-    ========================================= */
-    .matsuo-pf-en-title::before, .matsuo-pf-en-title::after { 
-      content: "──"; 
-      margin: 0 12px; 
-      color: rgba(200, 107, 75, 0.4); 
-      display: inline-block; 
-    }
-    
-    /* リストデザインの最適化（折り返しズレ防止） */
-    .matsuo-pf-check-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 700px;
-    }
-    .matsuo-pf-check-list li { 
-      position: relative; 
-      padding-left: 1.5em; 
-      margin-bottom: 15px; 
-      text-align: left;
-    }
-    .matsuo-pf-check-list li::before { 
-      content: "\2714"; 
-      position: absolute; 
-      left: 0; 
-      top: 0;
-      color: #679c7b; 
-      font-weight: bold; 
-    }
-    
-    .matsuo-pf-link-list {
-      list-style: none;
-      padding: 0;
-      margin: 15px 0 0 0;
-    }
-    .matsuo-pf-link-list li {
-      margin-bottom: 15px;
-      padding-left: 1.5em;
-      text-indent: -1.5em;
-      text-align: left;
-    }
-    .matsuo-pf-link-list a {
-      color: #333;
-      text-decoration: underline;
-    }
-    .matsuo-pf-link-list a:hover {
-      color: #679c7b;
-      opacity: 0.8;
-    }
-
-    .matsuo-pf-grid { 
-      display: grid; 
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 25px; 
-    }
-
-    .matsuo-pf-btn:hover { 
-      opacity: 0.9; 
-      transform: translateY(-2px); 
-      box-shadow: 0 8px 25px rgba(103, 156, 123, 0.5); 
-    }
-
-    /* 共通ボックススタイル */
-    .matsuo-pf-box {
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.06);
-      border: 1px solid #eaeaea;
-      box-sizing: border-box;
-      width: 100%;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>松尾隆弘のプロフィール｜オフィスマツオ</title>
+<meta name="description" content="人事30年、3度の倒産、そしてライターとして独立。オフィスマツオ代表・松尾隆弘のプロフィールです。人事専門の記事制作、採用支援、AI導入支援・AI研修を手がけています。">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="松尾隆弘のプロフィール｜オフィスマツオ">
+<meta property="og:description" content="人事30年、3度の倒産、そしてライターとして独立。人事専門の記事制作、採用支援、AI導入支援・AI研修を手がけています。">
+<meta property="og:image" content="https://matsuo03.github.io/profile/images/matsuo-ogp.jpg">
+<meta property="og:url" content="https://matsuo03.github.io/profile/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-  <div id="matsuo-profile-root">
-    <div class="container">
-      
-      <!-- ファーストビュー -->
-      <div class="matsuo-pf-box matsuo-pf-fv-wrap" style="display: flex; flex-direction: column; padding: 60px 40px; margin-bottom: 80px; align-items: center; justify-content: center; gap: 30px; text-align: center;">
-        <div class="matsuo-pf-profile-img" style="width: 200px;">
-          <img src="https://matsuo03.com/wp-content/uploads/2026/03/5be8307b128c7edfe2a753eadf366d6c.png" alt="松尾隆弘" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.08); display: block; margin: 0 auto;">
-        </div>
-        <div>
-          <!-- 強制改行を削除し、自然に折り返させる -->
-          <div class="matsuo-pf-fv-catch" style="font-size: 1.15em; margin-bottom: 12px; font-weight: bold; line-height: 1.5;">
-            AIには書けない『現場のリアル』を。
-          </div>
-          <div class="matsuo-pf-fv-name" style="font-size: 2.2em; margin: 0 0 10px 0; font-weight: bold; font-family: 'Yu Mincho', serif; line-height: 1.4;">
-            松尾 隆弘<span class="matsuo-pf-fv-name-en" style="font-size: 0.45em; color: #666; margin-left: 15px; font-weight: normal; font-family: inherit;">Takahiro Matsuo</span>
-          </div>
-          <div style="font-size: 1em; color: #679c7b; margin-bottom: 20px; letter-spacing: 0.1em; font-weight: bold; line-height: 1.5;">
-            HR・金融特化ライター ／ AIコンテンツ編集ディレクター
-          </div>
-          <div style="font-size: 0.95em;">
-            <p style="margin: 0;">人事歴30年の知見で、貴社メディアのPV・CVを最大化する専門ライター</p>
-          </div>
-        </div>
-      </div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">オフィスマツオ</a>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#story">これまでの歩み</a>
+      <a href="#episodes">3つの出来事</a>
+      <a href="#results">実績</a>
+      <a href="#services">サービス</a>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">ご相談</a>
+    </nav>
+  </div>
+</header>
 
-      <!-- MESSAGE -->
-      <div style="text-align: center; margin-bottom: 40px;">
-        <span class="matsuo-pf-en-title" style="display: inline-block; font-size: 0.85em; color: #c86b4b; font-weight: bold; letter-spacing: 0.25em; margin-bottom: 10px;">MESSAGE</span>
-      </div>
-      <div class="matsuo-pf-box" style="padding: 60px 50px; margin-bottom: 80px; border-top: 6px solid #c86b4b;">
-        <!-- 長い見出しや説明文は、スマホ時のみ左揃えにして泣き別れを防ぐ -->
-        <div class="matsuo-pf-sub-title sp-text-left" style="font-size: 1.15em; font-weight: bold; text-align: center; margin: 0 0 15px 0; font-family: 'Yu Mincho', serif;">
-          BtoB制作会社・メディア運営者様向け ｜ HR領域のコンテンツ課題を解決
-        </div>
-        <p class="sp-text-left" style="text-align: center; font-size: 0.95em; margin: 0 0 30px 0; font-weight: bold;">
-          貴社ディレクターの疲弊を解消し、メディアの成果（PV・CV）に直結するコンテンツをご提供します。
-        </p>
-        
-        <div style="max-width: 600px; margin: 0 auto;">
-          <p style="margin: 0 0 1.5em 0; text-align: left;">「専門的なHR記事を任せられるライターが見つからない」<br>「AI記事の修正やファクトチェックで、社内リソースが限界…」<br>「読まれるだけでなく、実際の問い合わせ（CV）に繋がる記事が欲しい」</p>
-          <p style="margin: 0 0 1.5em 0; text-align: left;">このようなメディア運営の「もどかしさ」は、書き手に人事の<strong>「現場知見」</strong>がないことに起因します。</p>
-          <p style="margin: 0; text-align: left; font-weight: bold; font-size: 1.05em; color: #c86b4b;">必要なのは、現場の痛みを理解し、それを経営層の狙いと結びつける「戦略と翻訳」です。<br>私は専門家として、貴社のメディア運営に伴走します。</p>
-        </div>
-      </div>
+<main id="top">
 
-      <!-- WHY CHOOSE ME -->
-      <div style="margin-bottom: 80px;">
-        <div style="text-align: center; margin-bottom: 40px;">
-          <span class="matsuo-pf-en-title" style="display: inline-block; font-size: 0.85em; color: #c86b4b; font-weight: bold; letter-spacing: 0.25em; margin-bottom: 10px;">WHY CHOOSE ME</span>
-          <div class="matsuo-pf-section-title" style="font-size: 2.2em; font-weight: bold; margin: 0 0 10px 0; font-family: 'Yu Mincho', serif;">
-            松尾が選ばれる3つの理由
-          </div>
-          <p class="sp-text-left" style="text-align: center; font-size: 0.95em; margin: 0;">
-            単なる「文章作成」にとどまらず、ビジネスの成果に直結するコンテンツをご提供できる理由です。
-          </p>
-        </div>
-        <div class="matsuo-pf-reasons-wrap" style="display: flex; flex-direction: row; gap: 30px; width: 100%;">
-          <div class="matsuo-pf-box" style="flex: 1; padding: 40px 25px;">
-            <div class="matsuo-pf-item-title" style="font-size: 1.1em; font-weight: bold; text-align: left; margin: 0 0 15px 0; color: #679c7b; border-bottom: 2px dashed #eaeaea; padding-bottom: 10px; font-family: 'Yu Mincho', serif;">
-              1. 1,000人以上の選考を見極めてきた「確かな目」
-            </div>
-            <p style="text-align: left; font-size: 0.95em; margin: 0;">30年にわたる人事実務の中で、自ら1,000人以上の面接・採用に携わってきました。現場のリアルな課題を知るからこそ、求職者や担当者の心を動かし、応募や問い合わせといった具体的なアクション（CV）を促す言葉を抽出できます。</p>
-          </div>
-          <div class="matsuo-pf-box" style="flex: 1; padding: 40px 25px;">
-            <div class="matsuo-pf-item-title" style="font-size: 1.1em; font-weight: bold; text-align: left; margin: 0 0 15px 0; color: #679c7b; border-bottom: 2px dashed #eaeaea; padding-bottom: 10px; font-family: 'Yu Mincho', serif;">
-              2. FPならではの客観的な数値分析とロジカルな構成
-            </div>
-            <p style="text-align: left; font-size: 0.95em; margin: 0;">人事系FPとしてコンサルティングに携わってきた知見を活かし、社会保険や人件費などの「経営数字」を踏まえたロジカルなストーリーを構築。感情論に終始しない、BtoB向けにも説得力のある専門的なコンテンツを提供します。</p>
-          </div>
-          <div class="matsuo-pf-box" style="flex: 1; padding: 40px 25px;">
-            <div class="matsuo-pf-item-title" style="font-size: 1.1em; font-weight: bold; text-align: left; margin: 0 0 15px 0; color: #679c7b; border-bottom: 2px dashed #eaeaea; padding-bottom: 10px; font-family: 'Yu Mincho', serif;">
-              3. AI活用による「高品質×高スピード」な完結型ディレクション
-            </div>
-            <p style="text-align: left; font-size: 0.95em; margin: 0;">これまで1,000本を超えるコンテンツの戦略立案〜ディレクションを指揮。最新のAI技術を駆使して効率化を図りつつ、プロの眼識でファクトチェックとリライトを行うことで、貴社の品質管理コストを大幅に削減します。</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SEO実績 -->
-      <div class="matsuo-pf-box" style="padding: 40px; margin-bottom: 80px; border-top: 5px solid #c86b4b;">
-        <div class="matsuo-pf-section-title" style="font-size: 1.6em; font-weight: bold; text-align: center; margin: 0 0 15px 0; font-family: 'Yu Mincho', serif;">
-          確かなSEO実績（クライアント評価）
-        </div>
-        <p class="sp-text-left" style="text-align: center; font-size: 0.95em; margin-bottom: 20px;">
-          専門性と一次情報を重視した執筆・リライトにより、検索エンジンからも高い評価を獲得しています。
-        </p>
-        <ul class="matsuo-pf-check-list">
-          <li>納品記事の約8割が検索10位以内にランクイン（※クライアント報告より）</li>
-          <li>既存の「圏外記事」に対する専門家目線のリライトで、上位表示を達成</li>
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">オフィスマツオ 代表</p>
+        <h1>松尾 隆弘</h1>
+        <p class="roman">TAKAHIRO MATSUO</p>
+        <p class="catch">人事30年、3度の倒産、<br class="pc-only">そしてライターとして独立。<br><em>遠回りしてきたから、つまずく人の気持ちがわかります。</em></p>
+        <p class="lead">企業の人事として30年、1,000人以上の面接に関わってきました。いまは人事専門のライターとして記事を書きながら、AIの導入支援や研修を手がけています。</p>
+        <ul class="tags">
+          <li>人事専門ライター</li>
+          <li>AI導入支援・AI研修</li>
+          <li>採用支援</li>
+          <li>FP2級</li>
         </ul>
+        <div class="btns">
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">無料で相談する</a>
+          <a class="btn btn-ghost" href="services/index.html">サービスを見る</a>
+        </div>
       </div>
+      <div class="portrait">
+        <img src="images/matsuo.webp" alt="松尾隆弘の写真" width="800" height="800">
+      </div>
+    </div>
+  </section>
 
-      <!-- 料金パッケージ -->
-      <div style="text-align: center; margin-bottom: 40px;">
-        <span class="matsuo-pf-en-title" style="display: inline-block; font-size: 0.85em; color: #c86b4b; font-weight: bold; letter-spacing: 0.25em; margin-bottom: 10px;">SERVICE</span>
-        <div class="matsuo-pf-section-title" style="font-size: 2.2em; font-weight: bold; margin: 0 0 10px 0; font-family: 'Yu Mincho', serif;">
-          ご提供パッケージ（料金目安）
-        </div>
-        <p class="sp-text-left" style="text-align: center; font-size: 0.95em; margin: 0;">
-          貴社の課題やリソース状況に合わせて、最適なサポートを提案いたします。
-        </p>
-      </div>
-      <div class="matsuo-pf-grid" style="margin-bottom: 20px;">
-        <div class="matsuo-pf-box" style="padding: 35px 30px; border-top: 5px solid #679c7b; display: flex; flex-direction: column;">
-          <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; font-family: 'Yu Mincho', serif; color: #679c7b; font-weight: bold;">
-            AIコンテンツ編集パッケージ
-          </div>
-          <p style="font-size: 0.95em; margin: 0 0 20px 0;">AI生成原稿のファクトチェック、現場目線（一次情報）の注入、SEO最適化、WordPress入稿まで一括対応。ディレクター様の手間を省きます。</p>
-          <div style="font-weight: bold; color: #c86b4b; font-size: 1.1em; margin-top: auto;">1記事 30,000円〜</div>
-        </div>
-        <div class="matsuo-pf-box" style="padding: 35px 30px; border-top: 5px solid #679c7b; display: flex; flex-direction: column;">
-          <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; font-family: 'Yu Mincho', serif; color: #679c7b; font-weight: bold;">
-            インタビュー音源・記事化パッケージ
-          </div>
-          <p style="font-size: 0.95em; margin: 0 0 20px 0;">録音・録画済みのデータをもとに、話し言葉の整理と構成の再構築を行い、読者の核心を突く事例記事等へ仕上げます。（※音源からの作成特化）</p>
-          <div style="font-weight: bold; color: #c86b4b; font-size: 1.1em; margin-top: auto;">1記事 20,000円〜</div>
-        </div>
-        <div class="matsuo-pf-box" style="padding: 35px 30px; border-top: 5px solid #679c7b; display: flex; flex-direction: column;">
-          <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; font-family: 'Yu Mincho', serif; color: #679c7b; font-weight: bold;">
-            HR・金融専門記事執筆パッケージ
-          </div>
-          <p style="font-size: 0.95em; margin: 0 0 20px 0;">人事・FPの知見を活かし、採用側と求職者側の双方の心理を押さえたオリジナル記事をゼロから執筆します。</p>
-          <div style="font-weight: bold; color: #c86b4b; font-size: 1.1em; margin-top: auto;">1記事 30,000円〜</div>
-        </div>
-        <div class="matsuo-pf-box" style="padding: 35px 30px; border-top: 5px solid #679c7b; display: flex; flex-direction: column;">
-          <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; font-family: 'Yu Mincho', serif; color: #679c7b; font-weight: bold;">
-            メディア伴走・ディレクション支援
-          </div>
-          <p style="font-size: 0.95em; margin: 0 0 20px 0;">メディアの企画立案、キーワード選定、新人ライターへのフィードバック等、貴社チームの一員として品質管理をサポートします。</p>
-          <div style="font-weight: bold; color: #c86b4b; font-size: 1.1em; margin-top: auto;">月額 応相談</div>
-        </div>
-      </div>
-      <p class="sp-text-left" style="text-align: center; font-size: 0.9em; color: #666; margin-bottom: 80px;">
-        ※上記は目安です。ご予算やご依頼ボリュームに合わせた柔軟な対応が可能です。
-      </p>
-
-      <!-- PORTFOLIO / 実績 -->
-      <div style="text-align: center; margin-bottom: 40px;">
-        <span class="matsuo-pf-en-title" style="display: inline-block; font-size: 0.85em; color: #c86b4b; font-weight: bold; letter-spacing: 0.25em; margin-bottom: 10px;">PORTFOLIO</span>
-        <div class="matsuo-pf-section-title" style="font-size: 2.2em; font-weight: bold; margin: 0 0 10px 0; font-family: 'Yu Mincho', serif;">主な実績</div>
-        <p class="sp-text-left" style="text-align: center; font-size: 0.95em; margin: 0;">
-          メディアでの記名記事から、素の執筆力がわかる個人ブログ、ディレクション能力の裏付けとなる指導実績までをご紹介します。
-        </p>
-      </div>
-      
-      <div class="matsuo-pf-box" style="padding: 40px; margin-bottom: 30px; border-top: 5px solid #679c7b;">
-        <div class="matsuo-pf-section-title" style="font-size: 1.4em; font-weight: bold; text-align: center; margin: 0 0 30px 0; padding-bottom: 15px; border-bottom: 1px solid #eaeaea; font-family: 'Yu Mincho', serif;">
-          メディア掲載実績（専門性と権威性）
-        </div>
-        
-        <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #eaeaea;">
-          <strong style="color: #679c7b; font-size: 1.1em;">・Workship MAGAZINE 様</strong>
-          <ul class="matsuo-pf-link-list">
-            <li>📝 <a href="https://goworkship.com/magazine/hr-how-to-reduce-recruitment-costs/" target="_blank" rel="noopener noreferrer">採用コスト削減の手法5選！失敗しないための注意点も解説</a></li>
-            <li>📝 <a href="https://goworkship.com/magazine/measures-to-address-recruitment-difficulties/" target="_blank" rel="noopener noreferrer">【担当者必見】採用難の対策5選！「待つ採用」から「攻める採用」へ</a></li>
-            <li style="margin-bottom: 5px;">📝 <a href="https://goworkship.com/magazine/hr-how-to-create-hiring-requirements/" target="_blank" rel="noopener noreferrer">【完全版】採用要件の作り方5ステップ！人材要件との違いや職種別の具体例も解説</a></li>
-          </ul>
-        </div>
-        
-        <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #eaeaea;">
-          <strong style="color: #679c7b; font-size: 1.1em;">・ウマい人事（デイリーインフォメーション）様</strong>
-          <ul class="matsuo-pf-link-list">
-            <li>📝 <a href="https://umai-jinji.jp/column/other-45/" target="_blank" rel="noopener noreferrer">なぜ優秀な社員ほどすぐに辞めていくのか</a></li>
-            <li>📝 <a href="https://umai-jinji.jp/column/other-38/" target="_blank" rel="noopener noreferrer">新人教育を任されたらどうすればいい？担当者に必要な考え方と研修の進め方を解説</a></li>
-            <li style="margin-bottom: 5px;">📝 <a href="https://umai-jinji.jp/column/other-42/" target="_blank" rel="noopener noreferrer">嫌われ役だからこそ、好かれる人事になろう。周囲に嫌われないための7つのポイント</a></li>
-          </ul>
-        </div>
-        
-        <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed #eaeaea;">
-          <strong style="color: #679c7b; font-size: 1.1em;">・経営ノウハウの泉（コクヨ）様</strong>
-          <ul class="matsuo-pf-link-list">
-            <li>📝 <a href="https://www.soumunomori.com/keiei-izumi/archives/25285" target="_blank" rel="noopener noreferrer">障害者雇用とは。法定雇用率や給与について</a></li>
-            <li>📝 <a href="https://www.soumunomori.com/keiei-izumi/archives/21693" target="_blank" rel="noopener noreferrer">新卒社員が次々と辞めてしまう…。早期離職の原因とは？定着率を上げる方法も解説</a></li>
-            <li style="margin-bottom: 5px;">📝 <a href="https://www.soumunomori.com/keiei-izumi/archives/24043" target="_blank" rel="noopener noreferrer">役員室のオープン化が、フラットな組織文化を生む！経営層と社員が自然に交流できる環境作り</a></li>
-          </ul>
-        </div>
-        
-        <div style="margin-bottom: 10px;">
-          <strong style="color: #679c7b; font-size: 1.1em;">・ITmedia ビジネスオンライン 様</strong>
-          <ul class="matsuo-pf-link-list">
-            <li style="margin-bottom: 5px;">📝 <a href="https://www.itmedia.co.jp/business/articles/2507/08/news030.html" target="_blank" rel="noopener noreferrer">DeNA人事が“AIをフル活用”して分かった「AIがフィットする業務、しない業務」</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- その他の掲載記事 / 指導実績 -->
-      <div class="matsuo-pf-grid" style="margin-bottom: 80px;">
-        <div class="matsuo-pf-box" style="padding: 35px 30px; display: flex; flex-direction: column;">
-          <div>
-            <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; font-family: 'Yu Mincho', serif; color: #c86b4b; font-weight: bold;">その他の掲載記事</div>
-            <p style="font-size: 0.95em; margin: 0 0 20px 0;">その他HRメディア・金融メディアへでの執筆実績をご覧いただけます</p>
-          </div>
-          <a href="https://fori.io/t-matsuo" target="_blank" rel="noopener noreferrer" style="color: #679c7b; text-decoration: none; font-weight: bold; border-bottom: 1px solid #679c7b; display: inline-block; align-self: flex-start; padding-bottom: 3px; margin-top: auto;">👉 記事を読む</a>
-        </div>
-        <div class="matsuo-pf-box" style="padding: 35px 30px; display: flex; flex-direction: column;">
-          <div>
-            <div class="matsuo-pf-item-title" style="font-size: 1.2em; margin: 0 0 15px 0; font-family: 'Yu Mincho', serif; color: #c86b4b; font-weight: bold;">指導・メンター実績</div>
-            <p style="font-size: 0.95em; margin: 0 0 20px 0;">初心者向けに営業文や記事の添削を実施。ゼロイチを達成できるまで伴走するサービスを展開。論理的に文章構成や意図を言語化できるため、メディア運営時のライターへのフィードバック等、品質管理（ディレクション）も安心してお任せいただけます。</p>
-          </div>
-          <a href="https://tensaku-matsuo.my.canva.site/" target="_blank" rel="noopener noreferrer" style="color: #679c7b; text-decoration: none; font-weight: bold; border-bottom: 1px solid #679c7b; display: inline-block; align-self: flex-start; padding-bottom: 3px; margin-top: auto;">👉 添削サービスを見る</a>
-        </div>
-      </div>
-
-      <!-- PROFILE -->
-      <div style="text-align: center; margin-bottom: 40px;">
-        <span class="matsuo-pf-en-title" style="display: inline-block; font-size: 0.85em; color: #c86b4b; font-weight: bold; letter-spacing: 0.25em; margin-bottom: 10px;">PROFILE</span>
-        <div class="matsuo-pf-section-title" style="font-size: 2.2em; font-weight: bold; margin: 0; font-family: 'Yu Mincho', serif;">プロフィール</div>
-      </div>
-      <div class="matsuo-pf-box" style="padding: 40px; margin-bottom: 80px;">
-        <div style="text-align: center; margin-bottom: 20px;">
-          <div style="font-size: 0.9em; color: #679c7b; font-weight: bold; margin-bottom: 5px;">代表コンサルタント / HR・金融特化ライター</div>
-          <div class="matsuo-pf-section-title" style="font-size: 1.6em; font-weight: bold; margin: 0; font-family: 'Yu Mincho', serif;">松尾 隆弘</div>
-        </div>
-        <p style="font-size: 0.95em; margin-bottom: 15px;">ブライダル・ホテル・小売の各業界にて、約30年にわたり人事・総務の責任者として組織づくりや経営サポートに従事。1,000人以上の面接対応など採用実務全般を統括した経験を持つ。</p>
-        <p style="font-size: 0.95em; margin-bottom: 25px;">また、自ら企業内FP部門を立ち上げた経験を持ち、「人事×FP（お金とキャリア）」という独自の視点から、従業員のライフプラン支援や企業への制度構築アドバイスも実施。現在はその知見を活かし、HR領域のコンテンツ制作・メディアディレクションを行っている。</p>
-      </div>
-
-      <!-- CTA -->
-      <div class="matsuo-pf-box" style="text-align: center; padding: 60px 40px;">
-        <div class="matsuo-pf-section-title" style="font-size: 1.8em; font-weight: bold; color: #679c7b; margin: 0 0 15px 0; font-family: 'Yu Mincho', serif;">
-          貴社の「次の一手」に伴走いたします
-        </div>
-        
-        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-          <p style="margin: 0 0 10px 0; font-size: 0.95em;">「自社の魅力がうまく言語化できない」「AIを導入したが品質管理に疲弊している」など、どのような段階でも構いません。</p>
-          <p style="margin: 0 0 25px 0; font-size: 0.95em;">貴社のリソース不足を解消し、成果を生むメディア運営の伴走者として、まずは30分ほどの「壁打ち（無料相談）」から始めませんか？</p>
-        </div>
-        
-        <div style="background:#f9f9f9; padding:20px; border-radius:8px; font-size:0.95em; border: 1px solid #eaeaea; max-width: 600px; margin: 0 auto 30px auto; text-align: left;">
-          <strong style="color:#c86b4b; display:block; margin-bottom:15px; font-size: 1.1em; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
-            💡 30分の無料相談でお持ち帰りいただけるもの（例）
-          </strong>
-          <ul style="margin: 0; padding-left: 1.5em; color: #333; line-height: 1.7;">
-            <li style="margin-bottom: 8px;">既存のAI生成記事に対する、専門家目線での課題フィードバック</li>
-            <li style="margin-bottom: 8px;">今後のHRコンテンツ企画の方向性出し</li>
-            <li>リソース不足を解消するための、業務切り出しのご提案</li>
-          </ul>
-        </div>
-
-        <p style="margin: 0 0 5px 0; font-weight: bold;">【お問い合わせ・無料相談はこちら 】</p>
-        <p style="margin: 0 0 15px 0; font-size: 0.85em; color: #666;">12時間以内にご返信いたします。</p>
-        <a href="https://docs.google.com/forms/d/1Cj5uGmo96YQMQYoi5vHsKKSLk6wVS4V-2xJBbUsJpCo/viewform" class="matsuo-pf-btn" style="display: inline-block; background-color: #679c7b; color: #fff; padding: 18px 50px; border-radius: 50px; font-size: 1.1em; font-weight: bold; box-shadow: 0 5px 20px rgba(103, 156, 123, 0.4); text-decoration: none;" target="_blank" rel="noopener noreferrer">お問い合わせフォームへ</a>
-      </div>
-
+  <!-- 数字 -->
+  <div class="stats" aria-label="主な数字">
+    <div class="wrap">
+      <ul>
+        <li><span class="num">30<small>年</small></span><span class="label">企業の人事歴</span></li>
+        <li><span class="num">1,000<small>人以上</small></span><span class="label">面接に関わった人数</span></li>
+        <li><span class="num">1,000<small>本以上</small></span><span class="label">コンテンツの企画<br>（ディレクションを含む）</span></li>
+        <li><span class="num">約7<small>割</small></span><span class="label">納品記事が<br>検索10位以内</span></li>
+      </ul>
+      <p class="note">※検索順位はクライアントからの報告によるものです。</p>
     </div>
   </div>
 
+  <!-- はじめに -->
+  <section class="block" id="about">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <p class="en">About</p>
+        <h2>「AIが苦手だった側」から教えています</h2>
+      </div>
+      <div class="prose">
+        <p>私は文系の出身で、もともとAIには興味がありませんでした。</p>
+        <p>AIの研修では受講者の方からよくこんな声を聞きます。</p>
+      </div>
+      <div class="voices">
+        <div class="voice">「AIを学びたいけど、機械に弱くて」</div>
+        <div class="voice">「この歳からAIを覚えるのは無理ではないか」</div>
+      </div>
+      <div class="prose">
+        <p>どちらも少し前の私自身の言葉です。</p>
+        <p>プログラミングの経験がない私でも、いまはAIに頼んで簡単なゲームを作れます。</p>
+        <p><strong>AIは年齢やパソコンの得意・不得意に関係なく使えるようになります。</strong></p>
+      </div>
+      <div class="message-box">
+        <p>研修で持ち帰ってほしいのはAIの技術そのものではありません。</p>
+        <p class="big">「自分にも使えた」という実感です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- これまでの歩み -->
+  <section class="block alt" id="story">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <p class="en">Story</p>
+        <h2>これまでの歩み</h2>
+      </div>
+      <p class="timeline-lead">勤めた3社は、すべて倒産しています。</p>
+      <ol class="timeline">
+        <li>
+          <div class="year">1993年</div>
+          <div>
+            <h3>結婚式場の人事<span class="badge">倒産</span></h3>
+            <p>経営不振で他社へ譲渡され、社員は一旦全員が解雇されました。元上司の誘いを受け、上司の転職先だったホテルへ移っています。</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2005年</div>
+          <div>
+            <h3>ホテルの人事部長<span class="badge">倒産</span></h3>
+            <p>人事の全権を任され、協力会社の人事制度づくりや採用支援も手がけました。FP2級もこの時期に取得しています。会社の経営が立ち行かなくなった際は、人事責任者として社員の再就職を支援しました。</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2012年</div>
+          <div>
+            <h3>小売チェーンの人事責任者<span class="badge">倒産</span></h3>
+            <p>40歳を過ぎての転職だったため約30社に応募し、ようやく採用された会社です。採用計画から面接、社員教育まで任されていました。2021年12月、会社は経営不振により廃業しました。</p>
+          </div>
+        </li>
+        <li class="turn">
+          <div class="year">2022年</div>
+          <div>
+            <h3>Webライターとして独立<span class="badge">転機</span></h3>
+            <p>コロナ禍で中途採用は止まり、子どもは大学生、住宅ローンも残っている状況です。アルバイトと掛け持ちしながらクラウドソーシングで仕事を探す毎日です。1,000人以上の面接で応募書類を見てきたため、採用する側が読みたくなる文章はわかっていたと思います。ただ、低単価の案件が多く朝から晩まで書いても月収は1万円ほどでした。</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2023年</div>
+          <div>
+            <h3>専業ライターに</h3>
+            <p>アルバイトを週3日に減らしてライティングの基礎を一から学び直し、専業ライターになりました。</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2024年</div>
+          <div>
+            <h3>編集・ディレクション・ライター講師</h3>
+            <p>人事の経験を活かしたHR領域の専門記事に加え、編集やディレクション、ライター講師の仕事も始めています。</p>
+          </div>
+        </li>
+        <li class="turn">
+          <div class="year">2025年</div>
+          <div>
+            <h3>SEO案件がすべて打ち切りに<span class="badge">転機</span></h3>
+            <p>取引先から「今後はAIで記事を内製化する」と連絡があり、収入は3分の1になりました。ここからAIの勉強を本格的に始めています。</p>
+          </div>
+        </li>
+        <li>
+          <div class="year">2025年〜</div>
+          <div>
+            <h3>AI導入支援・AI研修・AIエージェント作成</h3>
+            <p>記事制作や採用支援に加えて、AIの導入支援や研修、記事制作の自動化支援を手がけています。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3つの出来事 -->
+  <section class="block" id="episodes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="en">Episodes</p>
+        <h2>いまの仕事につながる3つの出来事</h2>
+      </div>
+      <div class="episodes">
+        <article class="episode">
+          <span class="no">EPISODE 01</span>
+          <h3>「これがAIに仕事を奪われるということか」</h3>
+          <p>ChatGPTに初めて触れたときは将来性を感じたものの、実務で使えるレベルではないと思いました。自分の専門性は自分にしかわからないので、仕事を奪われることはないと考えていたのです。</p>
+          <p>ところが2025年の春、取引先から依頼の打ち切りを告げられます。SEOの案件はすべてなくなり、収入は3分の1に減りました。</p>
+          <p>そこからAIスクールや講座に申し込み、一から学び直しています。いまでは書類の整理やメールの返信など、ルーティン業務の多くをAIで自動化しています。</p>
+          <p class="point">AIは使えば使うほど自分の仕事を楽にしてくれる道具でした。</p>
+        </article>
+        <article class="episode">
+          <span class="no">EPISODE 02</span>
+          <h3>80歳を超えた両親の相談相手はChatGPT</h3>
+          <p>パソコンに触れたことのない両親にChatGPTの使い方を教えました。最初につまずいたのはスマホへのインストールです。両親はアプリを入れるという考え方自体を知らなかったのです。</p>
+          <p>最初に伝えたのは「辞書で調べていたことを声で聞いてごらん」という使い方だけでした。日常的に使い始めたのは好きな花の名前を写真で調べられるようになってからです。いまでは旅行の写真を合成して夫婦で楽しむこともあります。</p>
+          <p class="point">高齢の方ほどAIを使えるようになってほしい。両親の姿を見て、本気でそう思うようになりました。</p>
+        </article>
+        <article class="episode">
+          <span class="no">EPISODE 03</span>
+          <h3>公園のベンチから始まった高齢者向けのAI教室</h3>
+          <p>公園のベンチで高齢の方に話しかけられたことがあります。すぐには答えられず、「ちょっと待ってください、AIに聞いてみますね」とその場で調べました。</p>
+          <p>それを見ていた方に頼まれ、老人会の集まりで2回（各10人ほど）AIの使い方を講義しています。参加者の方からは「生きているうちに遺影写真を作っておきたい」と頼まれ、AIで2枚作ってお渡ししました。</p>
+          <p class="point">人前で教える経験は人事時代の新入社員研修で積んできました。毎年登壇し、その後の1週間は座学の講師も務めています。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績 -->
+  <section class="block alt" id="results">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="en">Results</p>
+        <h2>これまでの実績</h2>
+      </div>
+      <div class="results">
+        <div class="result-card">
+          <h3><span class="icon" aria-hidden="true">👔</span>人事</h3>
+          <dl>
+            <dt>人事歴</dt><dd>30年 <small>（3社）</small></dd>
+            <dt>面接に関わった人数</dt><dd>1,000人以上</dd>
+            <dt>新入社員研修</dt><dd>毎年登壇＋1週間の座学講師</dd>
+            <dt>他社への人事コンサルティング</dt><dd>5年</dd>
+            <dt>保有資格</dt><dd>FP2級</dd>
+          </dl>
+        </div>
+        <div class="result-card">
+          <h3><span class="icon" aria-hidden="true">✍️</span>ライター・編集</h3>
+          <dl>
+            <dt>Webライター歴</dt><dd>約5年 <small>（2022年〜）</small></dd>
+            <dt>累計の制作記事数</dt><dd>1,000記事以上</dd>
+            <dt>人事系記事の執筆本数</dt><dd>700本以上</dd>
+            <dt>コンテンツの企画</dt><dd>1,000本以上 <small>（うちディレクション100本以上）</small></dd>
+            <dt>検索10位以内に入った納品記事</dt><dd>約7割<br><small>※検索順位はクライアントからの報告によるものです。</small></dd>
+          </dl>
+          <div class="media-in">
+            <h4>掲載メディア（抜粋）</h4>
+            <ul>
+              <li>Workship MAGAZINE</li>
+              <li>ウマい人事</li>
+              <li>経営ノウハウの泉（コクヨ）</li>
+              <li>ITmedia ビジネスオンライン</li>
+            </ul>
+            <a class="btn-sm btn-center" href="https://www.foriio.com/t-matsuo" target="_blank" rel="noopener">制作実績はこちら</a>
+          </div>
+        </div>
+        <div class="result-card">
+          <h3><span class="icon" aria-hidden="true">🤖</span>AI</h3>
+          <dl>
+            <dt>AIライティングシステムの構築</dt><dd>2件</dd>
+            <dt>高齢者向けAI教室</dt><dd>2回 <small>（各10名程度）</small></dd>
+            <dt>業務の自動化</dt><dd>書類整理・メール返信などのルーティン業務</dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- できること -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="en">Services</p>
+        <h2>提供しているサービス</h2>
+        <p>人事30年の経験と、AIで自分の仕事を立て直した経験がサービスの土台です。</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <h3>記事・コンテンツ</h3>
+          <p>採用する側と働く側の両方の目線で、人事の専門記事や採用ページを制作します。記事制作の自動化支援にも対応可能です。</p>
+          <ul>
+            <li>記事制作代行</li>
+            <li>Webページ制作（採用ページなど）</li>
+            <li>記事制作の自動化支援</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>採用</h3>
+          <p>1,000人以上の面接に関わった経験を貴社の採用に活かします。</p>
+          <ul>
+            <li>採用代行</li>
+            <li>採用支援</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>AI</h3>
+          <p>パソコンが苦手な方でも安心して相談できる、わかりやすさを大切にした支援です。</p>
+          <ul>
+            <li>AI導入支援</li>
+            <li>AI研修（法人向け）</li>
+            <li>AI相談（Web）</li>
+            <li>AI教室（日常・シニア向け）</li>
+            <li>業務効率化のAIエージェント作成</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h3>添削（個人向け）</h3>
+          <p>人事として数多くの応募書類を見てきた経験から、営業文や履歴書を採用する側の目線で添削します。</p>
+          <ul>
+            <li>提案文・営業文の添削</li>
+            <li>履歴書・職務経歴書の添削</li>
+            <li>ブログ記事・Web記事の添削</li>
+          </ul>
+        </div>
+      </div>
+      <div class="center">
+        <a class="btn btn-ghost" href="services/index.html">サービスと料金を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>AIのことも採用のことも、<br>まずは気軽にご相談ください</h2>
+      <p>AIを使ってみたいけれど、何から始めればいいかわからない。<br>そんな段階のご相談も歓迎しています。</p>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">お問い合わせフォームへ</a>
+      <p class="sns">X（旧Twitter）：<a href="https://x.com/matsuo_writer" target="_blank" rel="noopener">@matsuo_writer</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; オフィスマツオ 松尾隆弘</p>
+</footer>
+
 </body>
 </html>
-```eof
