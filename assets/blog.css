@@ -1,0 +1,177 @@
+/* ブログ（記事一覧・記事ページ） */
+
+/* 記事一覧 */
+.blog-list { padding: 8px 0 80px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+.chip {
+  font: inherit; font-size: 14px; cursor: pointer;
+  background: var(--surface); color: var(--navy); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px 16px;
+}
+.chip.is-active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.post-card {
+  display: flex; flex-direction: column; text-decoration: none; color: var(--ink);
+  background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  transition: transform .15s;
+}
+.post-card:hover { transform: translateY(-3px); }
+.post-card[hidden] { display: none; }
+.post-card-thumb { aspect-ratio: 16 / 9; background: var(--navy-soft); }
+.post-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.post-card-body { padding: 14px 18px 18px; }
+.post-card-title { margin: 6px 0 0; font-weight: 700; font-size: 15.5px; line-height: 1.7; }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; font-size: 13px; color: var(--muted); }
+.post-meta .cat { background: var(--accent-soft); color: var(--accent); font-weight: 700; border-radius: 4px; padding: 0 8px; }
+
+/* 記事ページ */
+.post { padding: 32px 0 0; }
+.post-wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb span { margin: 0 6px; }
+.post-title { font-family: "Noto Serif JP", serif; font-size: 30px; line-height: 1.5; color: var(--navy); margin: 12px 0 24px; }
+.post-eyecatch { width: 100%; height: auto; border-radius: var(--radius); margin-bottom: 32px; }
+
+.post-body { font-size: 16.5px; line-height: 2; }
+.post-body > * { margin-top: 0; }
+.post-body p { margin: 0 0 1.4em; }
+.post-body h2 {
+  font-family: "Noto Serif JP", serif; font-size: 23px; line-height: 1.6; color: #fff;
+  background: var(--navy); border-radius: 8px; padding: 12px 18px; margin: 64px 0 24px;
+}
+.post-body h3 {
+  font-size: 19.5px; line-height: 1.6; color: var(--navy);
+  border-left: 5px solid var(--accent); padding: 2px 0 2px 14px; margin: 48px 0 18px;
+}
+.post-body h4 { font-size: 17px; color: var(--navy); margin: 32px 0 12px; }
+.post-body figure { margin: 0 0 1.6em; }
+.post-body img { height: auto; border-radius: 8px; }
+.post-body figure.aligncenter img, .post-body .has-text-align-center { margin-left: auto; margin-right: auto; text-align: center; }
+.post-body figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 6px; }
+.post-body ul, .post-body ol { padding-left: 1.4em; margin: 0 0 1.4em; }
+.post-body li { margin-bottom: .3em; }
+.post-body a { color: var(--navy); }
+.post-body hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+
+/* マーカー */
+.swl-marker.mark_yellow { background: linear-gradient(transparent 60%, #fff3a8 60%); }
+.swl-marker.mark_orange { background: linear-gradient(transparent 60%, var(--accent-soft) 60%); }
+
+/* 背景つきのボックス */
+.post-body .has-background,
+.post-body .is-style-bg_stripe { background: #f4f1ea; border-radius: 10px; padding: 18px 22px; margin-bottom: 1.6em; }
+.post-body .has-swl-pale-02-background-color { background: #fdf3e7; }
+.post-body .has-swl-pale-03-background-color { background: #edf5ee; }
+.post-body .has-swl-pale-04-background-color { background: var(--navy-soft); }
+.post-body .has-swl-main-thin-background-color { background: var(--navy-soft); }
+.post-body .wp-block-group__inner-container > :last-child { margin-bottom: 0; }
+
+/* リスト装飾（番号つき） */
+.post-body .is-style-num_circle { list-style: none; padding-left: 0; counter-reset: num; }
+.post-body .is-style-num_circle li { position: relative; padding-left: 2em; }
+.post-body .is-style-num_circle li::before {
+  counter-increment: num; content: counter(num); position: absolute; left: 0; top: .35em;
+  width: 1.5em; height: 1.5em; line-height: 1.5em; border-radius: 50%;
+  background: var(--navy); color: #fff; font-size: .8em; text-align: center;
+}
+
+/* アイコンつきのボックス */
+.post-body .is-style-big_icon_good, .post-body .is-style-big_icon_point, .post-body .is-style-big_icon_check {
+  position: relative; border: 2px solid var(--accent-soft); background: var(--surface);
+  border-radius: 10px; padding: 18px 20px 18px 64px; margin-bottom: 1.6em;
+}
+.post-body .is-style-big_icon_good::before, .post-body .is-style-big_icon_point::before, .post-body .is-style-big_icon_check::before {
+  content: "✓"; position: absolute; left: 18px; top: 18px; width: 30px; height: 30px; line-height: 30px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; text-align: center; font-size: 16px;
+}
+.post-body .is-style-big_icon_point::before { content: "!"; }
+.post-body .is-style-big_icon_good ul, .post-body .is-style-big_icon_point ul, .post-body .is-style-big_icon_check ul { margin-bottom: 0; }
+
+/* 吹き出し */
+.c-balloon { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 1.6em; }
+.c-balloon__icon { flex: 0 0 64px; text-align: center; }
+.c-balloon__iconImg { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto; }
+.c-balloon__iconName { display: block; font-size: 12px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+.c-balloon__body {
+  position: relative; flex: 1; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 14px 18px;
+}
+.c-balloon__body::before {
+  content: ""; position: absolute; left: -8px; top: 22px; width: 14px; height: 14px;
+  background: var(--surface); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg);
+}
+.c-balloon__text > :last-child { margin-bottom: 0; }
+
+/* 見出しつきボックス */
+.cap_box { border: 2px solid var(--navy); border-radius: 10px; margin: 2em 0 1.6em; }
+.cap_box_ttl { background: var(--navy); color: #fff; font-weight: 700; padding: 6px 18px; border-radius: 7px 7px 0 0; }
+.cap_box.is-style-onborder_ttl .cap_box_ttl, .cap_box.is-style-onborder_ttl2 .cap_box_ttl { display: inline-block; margin: -1em 0 0 16px; border-radius: 6px; padding: 2px 14px; }
+.cap_box_content { padding: 16px 20px; }
+.cap_box_content > :last-child { margin-bottom: 0; }
+
+/* 表 */
+.post-body .wp-block-table { overflow-x: auto; }
+.post-body table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.7; }
+.post-body th, .post-body td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; background: var(--surface); }
+.post-body th, .post-body thead td { background: var(--navy-soft); color: var(--navy); font-weight: 700; }
+.post-body .swl-cell-text-centered { text-align: center; }
+
+/* 引用 */
+.post-body blockquote { margin: 0 0 1.6em; padding: 16px 20px; background: #f4f1ea; border-left: 4px solid var(--muted); border-radius: 6px; }
+.post-body blockquote > :last-child { margin-bottom: 0; }
+.post-body cite { display: block; font-size: 13px; color: var(--muted); font-style: normal; margin-top: 8px; }
+
+/* ボタン */
+.swell-block-button { text-align: center; margin: 0 0 1.6em; }
+.swell-block-button__link {
+  display: inline-block; background: var(--accent); color: #fff !important; text-decoration: none; font-weight: 700;
+  padding: 12px 32px; border-radius: 999px; box-shadow: 0 6px 16px rgba(200, 105, 28, .25);
+}
+
+/* ブログカード */
+.p-blogCard { margin: 0 0 1.6em; }
+.p-blogCard__inner { position: relative; display: flex; gap: 14px; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 12px; }
+.p-blogCard__thumb { flex: 0 0 140px; }
+.p-blogCard__thumb figure { margin: 0; }
+.p-blogCard__thumb img { width: 140px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; }
+.p-blogCard__title { display: block; font-weight: 700; line-height: 1.6; text-decoration: none; }
+.p-blogCard__title::after { content: ""; position: absolute; inset: 0; }
+.p-blogCard__excerpt { display: block; font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+/* よくある質問 */
+.swell-block-faq__item { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); margin: 0 0 1em; }
+.post-body .faq_q { font-size: 17px; border: 0; margin: 0; padding: 14px 18px; background: var(--navy-soft); border-radius: 10px 10px 0 0; }
+.post-body .faq_q::before { content: "Q. "; color: var(--accent); }
+.faq_a { padding: 14px 18px 2px; }
+
+/* 動画 */
+.video { position: relative; aspect-ratio: 16 / 9; margin: 0 0 1.6em; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+
+/* 著者・相談・関連記事 */
+.author-box { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; margin: 56px 0 0; }
+.author-box img { flex: 0 0 96px; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+.author-box p { margin: 0 0 10px; font-size: 15px; line-height: 1.85; }
+.author-name { color: var(--muted); font-size: 13px !important; }
+.author-name strong { display: block; color: var(--navy); font-size: 17px; }
+.post-cta { max-width: 760px; margin: 56px auto 0; text-align: center; background: linear-gradient(135deg, var(--navy) 0%, #2c5282 100%); color: #fff; border-radius: var(--radius); padding: 40px 24px; }
+.post-cta-ttl { font-family: "Noto Serif JP", serif; font-size: 21px; font-weight: 700; margin: 0 0 8px; text-wrap: balance; }
+.post-cta p { margin: 0 0 24px; }
+.post-related { max-width: 1040px; margin: 0 auto; padding: 72px 20px 80px; }
+.post-related h2 { font-family: "Noto Serif JP", serif; font-size: 22px; color: var(--navy); text-align: center; margin: 0 0 28px; }
+
+@media (max-width: 860px) {
+  .post-body .is-style-big_icon_good, .post-body .is-style-big_icon_point, .post-body .is-style-big_icon_check { padding: 52px 16px 14px; }
+  .post-body .is-style-big_icon_good::before, .post-body .is-style-big_icon_point::before, .post-body .is-style-big_icon_check::before { left: 14px; top: 12px; }
+  .post-grid { grid-template-columns: 1fr; }
+  .post-title { font-size: 23px; }
+  .post-body { font-size: 16px; }
+  .post-body h2 { font-size: 19.5px; margin-top: 48px; }
+  .post-body h3 { font-size: 17.5px; }
+  .p-blogCard__thumb { flex-basis: 96px; }
+  .p-blogCard__thumb img { width: 96px; }
+  .p-blogCard__excerpt { display: none; }
+  .author-box { flex-direction: column; align-items: center; text-align: center; }
+  .post-cta { margin: 48px 16px 0; }
+}
