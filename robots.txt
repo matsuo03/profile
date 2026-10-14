@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://profile.matsuo03.com/sitemap.xml
