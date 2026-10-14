@@ -22,8 +22,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
-<body>
+<body class="v2">
 
 <header class="site-header">
   <div class="wrap">
@@ -35,7 +36,7 @@
       <a href="#ai">AI</a>
       <a href="#results">実績</a>
       <a href="../blog/index.html">ブログ</a>
-      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">ご相談</a>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">無料相談</a>
     </nav>
   </div>
 </header>
@@ -50,22 +51,18 @@
       <p class="lead">人事として30年、1,000人以上の面接に関わってきました。その経験と、AIで自分の仕事を立て直した経験をもとにご依頼をお受けしています。</p>
       <nav class="jump" aria-label="サービスの分野">
         <a href="#content">
-          <span class="no">01</span>
           <strong>記事・コンテンツ</strong>
           <span class="desc">人事の専門記事、採用ページの制作、記事制作の自動化</span>
         </a>
         <a href="#recruit">
-          <span class="no">02</span>
           <strong>採用</strong>
           <span class="desc">採用代行、採用支援</span>
         </a>
         <a href="#ai">
-          <span class="no">03</span>
           <strong>AI</strong>
           <span class="desc">AI導入支援、AI研修、AI相談、AI教室、AIエージェント構築</span>
         </a>
         <a href="#tensaku">
-          <span class="no">04</span>
           <strong>添削（個人向け）</strong>
           <span class="desc">営業文・提案文、履歴書・職務経歴書、Web記事の添削</span>
         </a>
@@ -76,7 +73,7 @@
   <!-- 01 記事・コンテンツ -->
   <section class="block alt" id="content">
     <div class="wrap">
-      <div class="svc-head"><span class="no">01</span><h2>記事・コンテンツ</h2></div>
+      <div class="svc-head"><h2>記事・コンテンツ</h2></div>
       <p class="svc-intro">人事の専門知識が必要な記事を、人事30年の経験とFPの知識をもとに制作します。</p>
       <div class="worries">
         <p>こんなお悩みはありませんか</p>
@@ -138,7 +135,7 @@
   <!-- 02 採用 -->
   <section class="block" id="recruit">
     <div class="wrap">
-      <div class="svc-head"><span class="no">02</span><h2>採用</h2></div>
+      <div class="svc-head"><h2>採用</h2></div>
       <p class="svc-intro">3社で人事責任者を務め、採用計画から面接、社員教育まで担当してきました。他社の人事制度づくりや採用支援にも5年間携わっています。</p>
       <div class="plans">
         <div class="plan">
@@ -172,7 +169,7 @@
   <!-- 03 AI -->
   <section class="block alt" id="ai">
     <div class="wrap">
-      <div class="svc-head"><span class="no">03</span><h2>AI</h2></div>
+      <div class="svc-head"><h2>AI</h2></div>
       <p class="svc-intro">プログラミングの経験がないところからAIを学び、いまでは日々の業務の多くをAIで自動化しています。大切にしているのは、機械が苦手な方にもわかる言葉で説明することです。</p>
       <div class="plans">
         <div class="plan">
@@ -215,7 +212,7 @@
   <!-- 04 添削 -->
   <section class="block" id="tensaku">
     <div class="wrap">
-      <div class="svc-head"><span class="no">04</span><h2>添削（個人向け）</h2></div>
+      <div class="svc-head"><h2>添削（個人向け）</h2></div>
       <p class="svc-intro">人事として数多くの応募書類を見てきた経験から、営業文や履歴書を採用する側の目線で添削します。案件がなかなか取れない方や、転職活動中の方に向けたサービスです。</p>
       <div class="plans">
         <div class="plan wide">
@@ -237,7 +234,6 @@
   <section class="block alt" id="strengths">
     <div class="wrap">
       <div class="sec-head">
-        <p class="en">Strengths</p>
         <h2>松尾に依頼する3つの理由</h2>
       </div>
       <div class="strengths">
@@ -261,7 +257,6 @@
   <section class="block" id="results">
     <div class="wrap">
       <div class="sec-head">
-        <p class="en">Results</p>
         <h2>これまでの実績</h2>
       </div>
       <div class="mini-stats">
@@ -270,7 +265,7 @@
         <div><span class="num">700<small>本以上</small></span><span class="label">人事系記事の執筆本数</span></div>
       </div>
 
-      <h3 class="serif" style="color: var(--navy); font-size: 20px; margin: 0 0 16px;">掲載記事（抜粋）</h3>
+      <h3 class="results-sub">掲載記事（抜粋）</h3>
       <div class="articles">
         <section>
           <h3>Workship MAGAZINE</h3>
@@ -311,13 +306,18 @@
     </div>
   </section>
 
-  <!-- お問い合わせ -->
+  <!-- ここから：お問い合わせ（最後のボタン） -->
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2><span class="nw">まずは30分の</span><span class="nw">無料相談から</span></h2>
-      <p><span class="nw">どのような段階のご相談でも</span><span class="nw">構いません。</span><br><span class="nw">お問い合わせから</span><span class="nw">12時間以内にご返信します。</span></p>
-      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">ご相談はこちら</a>
-      <p class="sns">X：<a href="https://x.com/matsuo_writer" target="_blank" rel="noopener">@matsuo_writer</a></p>
+      <div class="contact-text">
+        <h2>まずは30分の<br>無料相談から</h2>
+        <p>どのような段階のご相談でも構いません。</p>
+      </div>
+      <div class="contact-action">
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSe7q2_hIjnWbo7L6vINcAHowhrDMNCbb0qg3G1tJ8zzM8eirQ/viewform?usp=dialog" target="_blank" rel="noopener">無料で相談する</a>
+        <p class="reassure">お問い合わせから12時間以内にご返信します。</p>
+        <p class="sns">X：<a href="https://x.com/matsuo_writer" target="_blank" rel="noopener">@matsuo_writer</a></p>
+      </div>
     </div>
   </section>
 
@@ -328,5 +328,6 @@
   <p>&copy; オフィスマツオ 松尾隆弘</p>
 </footer>
 
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
