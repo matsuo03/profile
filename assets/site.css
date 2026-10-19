@@ -143,6 +143,7 @@ section.alt { background: var(--surface); }
 .result-col h3 { font-family: "Noto Serif JP", serif; font-size: 20px; color: var(--navy); margin: 0 0 24px; }
 .result-col dt { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .result-col dd { margin: 0 0 16px; font-weight: 700; font-size: 17px; line-height: 1.6; }
+.result-col dd { text-wrap: balance; }
 .result-col dd small { font-weight: 400; font-size: 13px; color: var(--muted); }
 .media-row {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px;
@@ -151,6 +152,7 @@ section.alt { background: var(--surface); }
 .media-label { margin: 0; font-size: 13px; color: var(--muted); }
 .media-names { margin: 0; font-weight: 700; color: var(--navy); flex: 1; }
 .media-names span { color: var(--line); margin: 0 8px; font-weight: 400; }
+.media-names b { white-space: nowrap; }
 .text-link { color: var(--navy); font-weight: 700; font-size: 15px; text-underline-offset: 4px; }
 .text-link:hover { color: var(--accent); }
 
@@ -253,7 +255,7 @@ footer { background: var(--surface); }
   .v2 .hero { padding: 32px 0 16px; overflow: visible; }
   .v2 .hero .wrap { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
   .v2 .hero-text { display: contents; }
-  .v2 .hero .eyebrow { order: 1; font-size: 13px; }
+  .v2 .hero .eyebrow { order: 1; font-size: 13px; letter-spacing: .04em; text-wrap: balance; }
   .v2 .hero h1 { order: 2; }
   .v2 .hero .roman { order: 3; }
   .v2 .catch { order: 4; }
@@ -289,8 +291,10 @@ footer { background: var(--surface); }
   .v2 .episode { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
   .v2 .episode h3 { font-size: 20px; }
   .v2 .results { gap: 48px; }
-  .media-row { margin-top: 48px; }
-  .media-names span { margin: 0 4px; }
+  .media-row { margin-top: 48px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .media-names { flex: none; display: flex; flex-direction: column; gap: 6px; }
+  .media-names span { display: none; }
+  .media-row .text-link { margin-top: 8px; }
   .v2 .services { gap: 0; }
 
   .v2 .contact { padding: 80px 0; }
