@@ -13,6 +13,9 @@
 body { letter-spacing: .02em; }
 h1, h2, h3 { font-feature-settings: "palt"; }
 h1, h2, h3, .quotes li, .pause-big { word-break: auto-phrase; }
+/* PCでは固定の改行を入れず、文節で切って行の長さをそろえる */
+h2, h3, .catch, .catch-sub, .quotes li, .pause-big { text-wrap: balance; }
+.plan p, .svc-intro, .prose p, .page-hero .lead { text-wrap: pretty; }
 .num, .year, .proof dd, .amount, .price { font-feature-settings: "tnum"; }
 .sp-only { display: none; }
 
@@ -68,6 +71,8 @@ section.alt { background: var(--surface); }
   margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--line);
   font-size: 16px; line-height: 1.9; color: var(--ink); font-weight: 500; max-width: 36em;
 }
+.proof-row { display: block; }
+.proof-row b { font-weight: 700; margin-right: .3em; }
 .eyebrow .sep { color: var(--line); margin: 0 6px; }
 .v2 .portrait::before { display: none; }
 /* 写真を画面の右端まで広げ、顔に寄って切る */
@@ -105,6 +110,12 @@ section.alt { background: var(--surface); }
 }
 .story .timeline li.down::before { background: var(--paper); }
 .story .timeline li.turn::before, .story .timeline li.now::before { background: var(--accent); }
+/* 縦線：薄い線の上に、スクロールに合わせて濃い線が伸びる（動きを減らす設定のときは出さない） */
+.story .timeline::after {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; display: none;
+  background: rgba(244, 241, 234, .85); transform-origin: top;
+}
+.js .story .timeline::after { display: block; transform: scaleY(var(--p, 0)); }
 .story .timeline .year {
   font-family: "Noto Serif JP", serif; font-size: 44px; line-height: 1; font-weight: 700;
   color: var(--paper); text-align: left; letter-spacing: .02em;
@@ -135,11 +146,25 @@ section.alt { background: var(--surface); }
 .v2 .episode p { font-size: 16px; line-height: 1.95; margin: 0 0 1em; max-width: 36em; }
 .v2 .episode .point { margin: 24px 0 0; padding: 0; border: 0; font-size: 16px; color: var(--navy); }
 
+.ep-lead { margin: 0 0 56px; }
+.ep-lead span { display: block; }
+.ep-lead .ep-quote { font-family: "Noto Serif JP", serif; font-size: 22px; line-height: 1.7; color: var(--navy); margin-bottom: 4px; }
+.v2 .episodes .episode:first-child { border-top: 1px solid var(--line); }
+
+/* ---------- ご両親・AI教室（左に見出し・右に本文） ---------- */
+section.compact { padding: 96px 0; }
+.chapter { display: grid; grid-template-columns: 1fr 1.7fr; gap: 64px; align-items: start; }
+.chapter .h2 { margin: 0; font-size: 26px; line-height: 1.6; }
+.chapter p { font-size: 16px; line-height: 1.95; margin: 0 0 1em; max-width: 36em; }
+.chapter .point { margin: 24px 0 0; color: var(--navy); }
+.story .timeline .body p + p { margin-top: 1em; }
+
 /* ---------- 実績（線で区切った3列） ---------- */
 .v2 #results { background: var(--navy-soft); }
 .v2 #results .media-row { border-top-color: rgba(31, 58, 95, .18); }
 .v2 .results { gap: 56px; }
 .result-col { border-top: 2px solid var(--navy); padding-top: 24px; }
+.results.results-2 { grid-template-columns: repeat(2, 1fr); margin-bottom: 64px; }
 .result-col h3 { font-family: "Noto Serif JP", serif; font-size: 20px; color: var(--navy); margin: 0 0 24px; }
 .result-col dt { font-size: 13px; color: var(--muted); line-height: 1.6; }
 .result-col dd { margin: 0 0 16px; font-weight: 700; font-size: 17px; line-height: 1.6; }
@@ -191,9 +216,9 @@ footer { background: var(--surface); }
 .v2 .jump a, .v2 .jump a:nth-child(n) {
   background: none; box-shadow: none; border-radius: 0; border: 0;
   border-top: 1px solid var(--line); padding: 24px 0 28px;
-  transition: color .3s var(--ease);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
 }
-.v2 .jump a:hover { transform: none; }
+.v2 .jump a:hover { transform: none; border-top-color: var(--accent); }
 .v2 .jump a:hover strong { color: var(--accent); }
 .v2 .jump .no, .v2 .svc-head .no { display: none; }
 .v2 .jump strong { font-family: "Noto Serif JP", serif; font-size: 20px; transition: color .3s var(--ease); }
@@ -217,6 +242,7 @@ footer { background: var(--surface); }
 .v2 .mini-stats .label { opacity: 1; color: var(--muted); }
 .v2 .articles section { background: var(--surface); border-radius: var(--radius); }
 .v2 .more-links a { background: none; }
+.plans + .results-sub { margin-top: 64px; }
 .results-sub { font-family: "Noto Serif JP", serif; color: var(--navy); font-size: 20px; margin: 0 0 16px; }
 
 /* ---------- 添削ページ ---------- */
@@ -232,6 +258,39 @@ footer { background: var(--surface); }
 .v2 .message-box { border-radius: var(--radius); }
 .v2 .message-box p { color: var(--paper); }
 
+/* ---------- できること（3列・上に紺の線） ---------- */
+.can { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+.can-col { border-top: 2px solid var(--navy); padding-top: 24px; display: flex; flex-direction: column; }
+.can-col h3 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 0 0 16px; }
+.can-col p { font-size: 15px; line-height: 1.9; margin: 0 0 16px; }
+.can-col ul { margin: 0 0 24px; padding-left: 1.1em; font-size: 15px; line-height: 1.8; }
+.can-col .text-link { margin-top: auto; }
+.can-col .spec { list-style: none; padding: 0; }
+.can-col .spec li { display: flex; gap: .4em; margin-bottom: 6px; }
+.can-col .spec b { flex: none; color: var(--navy); font-weight: 700; }
+
+/* ---------- つくったもの（左にスマホ動画・右に3つ） ---------- */
+.works { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
+.work-feature { margin: 0; }
+.phone { width: 100%; max-width: 280px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #1a1a1a; }
+.phone video { display: block; width: 100%; height: auto; aspect-ratio: 590 / 1280; }
+.work-feature figcaption { margin-top: 24px; max-width: 320px; }
+.work-tag { display: block; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .06em; margin: 0 0 8px; }
+.work-feature h3, .work h3 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 0 0 12px; }
+.work-feature p, .work p { font-size: 15px; line-height: 1.9; margin: 0; }
+.work-list { display: grid; }
+.work { padding: 32px 0 40px; border-top: 1px solid var(--line); }
+.work:first-child { padding-top: 0; border-top: 0; }
+.work video, .work .work-media, .work .work-media img { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #1a1a1a; object-fit: cover; }
+.work video, .work .work-media { margin: 0 0 20px; }
+.work .work-media img { margin: 0; }
+/* 押せるカードだけ、触れたときに少し浮く */
+.work .work-media { overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.work .work-media img { transition: transform .5s var(--ease); }
+.work .work-media:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(31, 58, 95, .16); }
+.work .work-media:hover img { transform: scale(1.03); }
+.work .text-link { display: inline-block; margin-top: 16px; }
+
 /* ---------- ふわっと出る（A1） ---------- */
 .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .js .reveal.is-in { opacity: 1; transform: none; }
@@ -239,12 +298,17 @@ footer { background: var(--surface); }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .btn, .site-header .wrap { transition: none; }
   .btn:hover { transform: none; }
+  .work .work-media, .work .work-media img { transition: none; }
+  .work .work-media:hover, .work .work-media:hover img { transform: none; }
   html { scroll-behavior: auto; }
 }
 
 /* ---------- スマホ ---------- */
-@media (max-width: 860px) {
+/* 固定の改行は、スマホの幅（560px以下）だけ。それより広い画面は文節で自然に折り返す */
+@media (max-width: 560px) {
   .sp-only { display: inline; }
+}
+@media (max-width: 860px) {
   .site-header .wrap { height: 60px; }
   .site-header.is-scrolled .wrap { height: 52px; }
   section.block { padding: 80px 0; }
@@ -269,7 +333,7 @@ footer { background: var(--surface); }
   .pc-br { display: none; }
   .v2 .hero h1 { font-size: 36px; }
   .v2 .hero .roman { margin-bottom: 24px; }
-  .v2 .catch { font-size: 22px; }
+  .v2 .catch { font-size: clamp(17px, 5.3vw, 22px); }
   .catch-sub { font-size: 17px; margin-bottom: 24px; }
   .v2 .hero p.lead { margin-bottom: 32px; }
 
@@ -290,12 +354,23 @@ footer { background: var(--surface); }
 
   .v2 .episode { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
   .v2 .episode h3 { font-size: 20px; }
+  .ep-lead { margin-bottom: 32px; }
+  .ep-lead .ep-quote { font-size: 19px; }
+  section.compact { padding: 64px 0; }
+  .chapter { grid-template-columns: 1fr; gap: 16px; }
+  .chapter .h2 { font-size: 22px; }
   .v2 .results { gap: 48px; }
+  .results.results-2 { grid-template-columns: 1fr; margin-bottom: 48px; }
   .media-row { margin-top: 48px; flex-direction: column; align-items: flex-start; gap: 12px; }
   .media-names { flex: none; display: flex; flex-direction: column; gap: 6px; }
   .media-names span { display: none; }
   .media-row .text-link { margin-top: 8px; }
   .v2 .services { gap: 0; }
+  .can { grid-template-columns: 1fr; gap: 48px; }
+  .works { grid-template-columns: 1fr; gap: 48px; }
+  .phone { max-width: 260px; }
+  .work-feature figcaption { max-width: none; }
+  .work:first-child { padding-top: 0; }
 
   .v2 .contact { padding: 80px 0; }
   .v2 .contact .wrap { grid-template-columns: 1fr; gap: 32px; }
@@ -307,4 +382,17 @@ footer { background: var(--surface); }
   .v2 .page-hero h1, .v2 .lp-hero h1 { font-size: 25px; }
   .v2 .jump { gap: 0; }
   .v2 .mini-stats div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* ---------- 研修ページ：研修の概要 ---------- */
+.outline { margin-top: 56px; }
+.outline h3 { font-family: "Noto Serif JP", serif; font-size: 20px; color: var(--navy); margin: 0 0 16px; }
+.outline dl { display: grid; grid-template-columns: 11em 1fr; margin: 0; border-top: 1px solid var(--line); }
+.outline dt, .outline dd { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.8; }
+.outline dt { font-weight: 700; color: var(--navy); }
+@media (max-width: 860px) {
+  .outline { margin-top: 40px; }
+  .outline dl { grid-template-columns: 1fr; }
+  .outline dt { padding: 14px 0 0; border-bottom: 0; }
+  .outline dd { padding: 4px 0 14px; }
 }
