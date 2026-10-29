@@ -272,16 +272,16 @@ footer { background: var(--surface); }
 /* ---------- つくったもの（左にスマホ動画・右に3つ） ---------- */
 .works { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
 .work-feature { margin: 0; }
-.phone { width: 100%; max-width: 280px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #1a1a1a; }
+.phone { width: 100%; max-width: 280px; margin: 0 0 20px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #1a1a1a; }
 .phone video { display: block; width: 100%; height: auto; aspect-ratio: 590 / 1280; }
-.work-feature figcaption { margin-top: 24px; max-width: 320px; }
+.work-feature p { max-width: 320px; }
 .work-tag { display: block; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .06em; margin: 0 0 8px; }
 .work-feature h3, .work h3 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 0 0 12px; }
 .work-feature p, .work p { font-size: 15px; line-height: 1.9; margin: 0; }
 .work-list { display: grid; }
 .work { padding: 32px 0 40px; border-top: 1px solid var(--line); }
 .work:first-child { padding-top: 0; border-top: 0; }
-.work video, .work .work-media, .work .work-media img { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #1a1a1a; object-fit: cover; }
+.work video, .work .work-media, .work .work-media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius); background: #1a1a1a; object-fit: cover; }
 .work video, .work .work-media { margin: 0 0 20px; }
 .work .work-media img { margin: 0; }
 /* 押せるカードだけ、触れたときに少し浮く */
@@ -369,7 +369,7 @@ footer { background: var(--surface); }
   .can { grid-template-columns: 1fr; gap: 48px; }
   .works { grid-template-columns: 1fr; gap: 48px; }
   .phone { max-width: 260px; }
-  .work-feature figcaption { max-width: none; }
+  .work-feature p { max-width: none; }
   .work:first-child { padding-top: 0; }
 
   .v2 .contact { padding: 80px 0; }
