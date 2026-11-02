@@ -16,17 +16,50 @@
   document.querySelectorAll(".yt[data-yt]").forEach(function (link) {
     link.addEventListener("click", function (e) {
       e.preventDefault();
-      var iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + link.dataset.yt + "?autoplay=1&rel=0";
-      iframe.title = "松尾隆弘の自己紹介動画";
-      iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-      iframe.allowFullscreen = true;
       var box = document.createElement("div");
       box.className = "yt is-playing";
-      box.appendChild(iframe);
+      var spot = document.createElement("div");
+      box.appendChild(spot);
       link.replaceWith(box);
+      loadYouTubeApi(function () { playWithoutCaptions(spot, link.dataset.yt); },
+                     function () { spot.replaceWith(plainIframe(link.dataset.yt)); });
     });
   });
+
+  // 動画には字幕を焼き込んであるので、YouTubeの自動字幕は「字幕なし」にする（二重に出るのを防ぐ）
+  function playWithoutCaptions(spot, id) {
+    var off = function (e) { e.target.setOption("captions", "track", {}); };
+    new YT.Player(spot, {
+      host: "https://www.youtube-nocookie.com",
+      videoId: id,
+      playerVars: { autoplay: 1, rel: 0, playsinline: 1 },
+      events: {
+        onReady: function (e) { e.target.getIframe().title = "松尾隆弘の自己紹介動画"; e.target.playVideo(); },
+        onApiChange: off,
+        onStateChange: function (e) { if (e.data === YT.PlayerState.PLAYING) off(e); }
+      }
+    });
+  }
+
+  function loadYouTubeApi(done, fail) {
+    if (window.YT && window.YT.Player) return done();
+    var prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = function () { if (prev) prev(); done(); };
+    var s = document.createElement("script");
+    s.src = "https://www.youtube.com/iframe_api";
+    s.onerror = fail;
+    document.head.appendChild(s);
+  }
+
+  // 読み込めなかったときは、ふつうの埋め込みで再生する
+  function plainIframe(id) {
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    iframe.title = "松尾隆弘の自己紹介動画";
+    iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    iframe.allowFullscreen = true;
+    return iframe;
+  }
 
   if (!("IntersectionObserver" in window)) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
