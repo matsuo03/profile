@@ -12,6 +12,22 @@
     onScroll();
   }
 
+  // 自己紹介動画：押されたときに初めてYouTubeを読み込む（ページを重くしないため）
+  document.querySelectorAll(".yt[data-yt]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + link.dataset.yt + "?autoplay=1&rel=0";
+      iframe.title = "松尾隆弘の自己紹介動画";
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      var box = document.createElement("div");
+      box.className = "yt is-playing";
+      box.appendChild(iframe);
+      link.replaceWith(box);
+    });
+  });
+
   if (!("IntersectionObserver" in window)) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
