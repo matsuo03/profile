@@ -270,14 +270,26 @@ footer { background: var(--surface); }
 .can-col .spec li { display: flex; gap: .4em; margin-bottom: 6px; }
 .can-col .spec b { flex: none; color: var(--navy); font-weight: 700; }
 
-/* ---------- つくったもの（左にスマホ動画・右に3つ） ---------- */
+/* ---------- 制作例（ジャンル別） ---------- */
 .works { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
 .work-feature { margin: 0; }
 .phone { width: 100%; max-width: 280px; margin: 0 0 20px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #1a1a1a; }
 .phone video { display: block; width: 100%; height: auto; aspect-ratio: 590 / 1280; }
 .work-feature p { max-width: 320px; }
+/* ジャンル別：左にジャンル名、右に作品 */
+.genre { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; padding: 56px 0; border-top: 1px solid var(--line); }
+.genre:first-of-type { padding-top: 0; border-top: 0; }
+.genre-title { font-family: "Noto Serif JP", serif; font-size: 24px; line-height: 1.5; color: var(--navy); margin: 0 0 12px; }
+.genre-head p { font-size: 14px; line-height: 1.8; color: var(--muted); margin: 0; text-wrap: pretty; }
+.genre .work p, .work-feature-text p { text-wrap: pretty; }
+.genre .work { padding: 0; border-top: 0; }
+.genre .work.solo { max-width: 560px; }
+.work-feature { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+.work-feature .phone { margin: 0; }
+.work-feature-text { padding-top: 4px; }
+.work-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .work-tag { display: block; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: .06em; margin: 0 0 8px; }
-.work-feature h3, .work h3 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 0 0 12px; }
+.work-feature h4, .work h4 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 0 0 12px; }
 .work-feature p, .work p { font-size: 15px; line-height: 1.9; margin: 0; }
 .work-list { display: grid; }
 .work { padding: 32px 0 40px; border-top: 1px solid var(--line); }
@@ -384,7 +396,9 @@ footer { background: var(--surface); }
   .media-row .text-link { margin-top: 8px; }
   .v2 .services { gap: 0; }
   .can { grid-template-columns: 1fr; gap: 48px; }
-  .works { grid-template-columns: 1fr; gap: 48px; }
+  .genre { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  .work-feature { grid-template-columns: 1fr; gap: 20px; }
+  .work-pair { grid-template-columns: 1fr; gap: 40px; }
   .phone { max-width: 260px; }
   .work-feature p { max-width: none; }
   .work:first-child { padding-top: 0; }

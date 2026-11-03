@@ -160,45 +160,75 @@
     </div>
   </section>
 
-  <!-- ここから：つくったもの（自主制作のデモ・サンプル） -->
+  <!-- ここから：制作例（ジャンル別。コンテンツ制作は納品実績、ほかは自主制作のデモ・サンプル） -->
   <section class="block" id="works">
     <div class="wrap">
       <div class="sec-intro">
         <h2 class="h2">制作例</h2>
-        <p>自主制作のデモとサンプルを載せています。</p>
+        <p>ジャンルごとにまとめています。コンテンツ制作は実際の納品実績、そのほかは自主制作のデモとサンプルです。</p>
       </div>
-      <div class="works">
-        <article class="work-feature">
-          <span class="work-tag">自主制作デモ</span>
-          <h3><span class="nw">LINE予約システム</span><span class="nw">（美容室向けデモ）</span></h3>
-          <div class="phone">
-            <video controls preload="metadata" playsinline poster="media/line-demo-poster.jpg" aria-label="LINE予約システムの操作画面（約30秒）">
-              <source src="media/line-demo.mp4" type="video/mp4">
-            </video>
-          </div>
-          <p>メニュー選択から予約完了の通知まで、LINE内で完結する流れを約30秒の動画でご覧いただけます。</p>
-        </article>
-        <div class="work-list">
-          <article class="work">
+
+      <div class="genre" id="works-content">
+        <div class="genre-head">
+          <h3 class="genre-title">コンテンツ制作</h3>
+          <p>人事・採用の記事を中心に、累計1,000本以上を制作しています。</p>
+        </div>
+        <div class="genre-body">
+          <article class="work solo">
+            <h4>人事・採用の記事制作</h4>
+            <p>執筆だけでなく、編集やディレクション、ライター講師として書き手を育てる仕事も担当してきました。</p>
+            <a class="text-link" href="https://www.foriio.com/t-matsuo" target="_blank" rel="noopener">制作実績を見る</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="genre" id="works-system">
+        <div class="genre-head">
+          <h3 class="genre-title">システム開発</h3>
+          <p>業務の手間を減らすシステムのデモです。</p>
+        </div>
+        <div class="genre-body">
+          <article class="work solo">
             <span class="work-tag">自主制作デモ</span>
-            <h3>勤怠管理（小規模事業所向けデモ）</h3>
+            <h4>勤怠管理（小規模事業所向けデモ）</h4>
             <a class="work-media" href="https://matsuo03.github.io/kintaidemo/" target="_blank" rel="noopener" aria-label="勤怠管理のデモを開く">
               <img src="media/kintai-poster.jpg" alt="勤怠管理デモの画面。左に打刻ボタン、右に自動計算された勤怠表（架空のデータです）" width="1280" height="720" loading="lazy">
             </a>
             <p>打刻するだけで、実働・残業・深夜・遅刻を自動計算。Excelやスプレッドシートとの連携も可能です。ブラウザ上で実際の操作をお試しいただけます。</p>
             <a class="text-link" href="https://matsuo03.github.io/kintaidemo/" target="_blank" rel="noopener">デモを試す</a>
           </article>
-          <article class="work">
-            <span class="work-tag">自主制作サンプル</span>
-            <h3>サービス紹介動画</h3>
-            <video controls preload="metadata" playsinline poster="media/pr-video-poster.jpg" aria-label="営業文添削サービスのPR動画（約26秒）">
-              <source src="media/pr-video.mp4" type="video/mp4">
-            </video>
-            <p>自身のサービス（営業文添削）を紹介する動画です。用途に合わせて横型と縦型の2種類を制作しました。</p>
+        </div>
+      </div>
+
+      <div class="genre" id="works-line">
+        <div class="genre-head">
+          <h3 class="genre-title">LINE予約システム</h3>
+          <p>LINEで予約を受け付ける仕組みです。</p>
+        </div>
+        <div class="genre-body">
+          <article class="work-feature">
+            <div class="phone">
+              <video controls preload="metadata" playsinline poster="media/line-demo-poster.jpg" aria-label="LINE予約システムの操作画面（約30秒）">
+                <source src="media/line-demo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="work-feature-text">
+              <span class="work-tag">自主制作デモ</span>
+              <h4>美容室向けデモ</h4>
+              <p>メニュー選択から予約完了の通知まで、LINE内で完結する流れを約30秒の動画でご覧いただけます。</p>
+            </div>
           </article>
-          <article class="work">
+        </div>
+      </div>
+
+      <div class="genre" id="works-video">
+        <div class="genre-head">
+          <h3 class="genre-title">企業PR動画</h3>
+          <p>企業のPRを想定した動画です。</p>
+        </div>
+        <div class="genre-body">
+          <article class="work solo">
             <span class="work-tag">自主制作サンプル</span>
-            <h3>企業PR動画</h3>
             <a class="work-media" href="https://matsuo03.github.io/cm-portfolio/" target="_blank" rel="noopener" aria-label="架空のCMの作品ページを開く">
               <img src="media/cm-poster.jpg" alt="旅館のCMの1コマ。夕日と露天風呂（※架空のCMです）" width="960" height="540" loading="lazy">
             </a>
