@@ -37,12 +37,13 @@
     <div class="wrap">
       <p class="eyebrow">BLOG</p>
       <h1>ブログ</h1>
-      <p>人事歴30年の経験をもとに、採用・人事・転職・働き方について書いています。</p>
+      <p>人事歴30年の経験をもとに、採用・人事・転職・働き方について書いています。人事専門ライターとして書いてきた記事に加えて、今は人事の仕事へのAI活用についても発信しています。</p>
     </div>
   </section>
   <section class="blog-list">
     <div class="wrap">
-      <div class="chips"><button class="chip is-active" data-filter="all">すべて</button><button class="chip" data-filter="転職">転職</button><button class="chip" data-filter="人事">人事</button><button class="chip" data-filter="コラム">コラム</button><button class="chip" data-filter="就活">就活</button><button class="chip" data-filter="経営">経営</button><button class="chip" data-filter="年金">年金</button><button class="chip" data-filter="人材派遣">人材派遣</button></div>
+      <div class="chips"><button class="chip is-active" data-filter="all">すべて</button><button class="chip" data-filter="転職">転職</button><button class="chip" data-filter="人事">人事</button><button class="chip" data-filter="コラム">コラム</button><button class="chip" data-filter="就活">就活</button><button class="chip" data-filter="経営">経営</button><button class="chip" data-filter="年金">年金</button><button class="chip" data-filter="人材派遣">人材派遣</button><button class="chip" data-filter="AI活用">AI活用</button></div>
+      <p class="cat-desc" id="cat-desc-ai" hidden>人事の現場でAIをどう使うか、毎朝のニュース解説で扱ったテーマの深掘りや、実際の業務での使い方を紹介します。</p>
       <div class="post-grid">
 <a class="post-card" href="supermarket/" data-cat="転職">
   <div class="post-card-thumb"><img src="img/2025/03/4c43997ea12d9c1604698ae29ef5d1a4-1.png.webp" alt="" loading="lazy"></div>
@@ -237,12 +238,14 @@
       document.querySelectorAll(".chip").forEach(function (x) { x.classList.toggle("is-active", x === b); });
       var f = b.dataset.filter;
       document.querySelectorAll(".post-card").forEach(function (c) { c.hidden = f !== "all" && c.dataset.cat !== f; });
+      document.getElementById("cat-desc-ai").hidden = f !== "AI活用";
     });
   });
 </script>
 
 <footer>
   <p class="footer-links"><a href="../index.html">プロフィール</a><a href="../services/index.html">サービスと料金</a><a href="../blog/index.html">ブログ</a></p>
+  <p>拠点：福岡県宗像市。研修はオンラインを基本としています。福岡県内の企業様は、対面での実施も可能です。</p>
   <p>&copy; オフィスマツオ 松尾隆弘</p>
 </footer>
 

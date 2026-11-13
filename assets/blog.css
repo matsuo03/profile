@@ -158,6 +158,8 @@
 .post-cta { max-width: 760px; margin: 56px auto 0; text-align: center; background: linear-gradient(135deg, var(--navy) 0%, #2c5282 100%); color: #fff; border-radius: var(--radius); padding: 40px 24px; }
 .post-cta-ttl { font-family: "Noto Serif JP", serif; font-size: 21px; font-weight: 700; margin: 0 0 8px; text-wrap: balance; }
 .post-cta p { margin: 0 0 24px; }
+.post-cta .post-cta-more { margin: 16px 0 0; font-size: 14.5px; }
+.post-cta .post-cta-more a { color: #fff; text-underline-offset: 4px; }
 .post-related { max-width: 1040px; margin: 0 auto; padding: 72px 20px 80px; }
 .post-related h2 { font-family: "Noto Serif JP", serif; font-size: 22px; color: var(--navy); text-align: center; margin: 0 0 28px; }
 
