@@ -427,3 +427,6 @@ footer { background: var(--surface); }
   .outline dt { padding: 14px 0 0; border-bottom: 0; }
   .outline dd { padding: 4px 0 14px; }
 }
+
+/* 導入支援ページ：ボタンが2つ並ぶ「more」 */
+.more.pair { display: flex; flex-wrap: wrap; gap: 12px; }
