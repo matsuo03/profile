@@ -430,3 +430,6 @@ footer { background: var(--surface); }
 
 /* 導入支援ページ：ボタンが2つ並ぶ「more」 */
 .more.pair { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* お問い合わせ欄：Xの下のYouTube */
+.v2 .contact .sns.sns-yt { margin-top: 10px !important; }
