@@ -382,6 +382,7 @@ footer { background: var(--surface); }
   .story .timeline .badge { margin-left: 8px; }
 
   .v2 .episode { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+  .v2 .episode:last-child { border-bottom: 0; } /* 縦並びでは最後の線が章の境目と2本並ぶため消す */
   .v2 .episode h3 { font-size: 20px; }
   .ep-lead { margin-bottom: 32px; }
   .ep-lead .ep-quote { font-size: 19px; }
