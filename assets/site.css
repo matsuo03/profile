@@ -433,3 +433,18 @@ footer { background: var(--surface); }
 
 /* お問い合わせ欄：Xの下のYouTube */
 .v2 .contact .sns.sns-yt { margin-top: 10px !important; }
+
+/* AI研修ページ：おすすめの研修カード */
+#menu .plan-rec { border: 2px solid var(--accent); }
+#menu .rec-badge { display: inline-block; align-self: flex-start; font-size: 13px; font-weight: 700; color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 14px; margin: 0 0 10px; letter-spacing: .04em; }
+#menu .plan-rec h3 { font-size: 22px; }
+#menu .rec-examples { list-style: none; margin: 4px 0 20px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+#menu .rec-examples li { background: var(--accent-soft); border-radius: 10px; padding: 12px 16px; font-size: 14.5px; line-height: 1.7; }
+#menu .rec-examples b { display: block; color: var(--accent); font-size: 14px; margin-bottom: 2px; }
+@media (max-width: 720px) { #menu .rec-examples { grid-template-columns: 1fr; } }
+
+/* 資料（PDF）のダウンロード */
+#contact .dl-btn { margin-top: 20px; }
+.dl-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: 40px; padding: 24px 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.dl-row p { margin: 0; font-size: 15px; color: var(--ink); }
+.dl-row .btn { flex: none; }
