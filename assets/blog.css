@@ -160,6 +160,7 @@
 .post-cta p { margin: 0 0 24px; }
 .post-cta .post-cta-more { margin: 16px 0 0; font-size: 14.5px; }
 .post-cta .post-cta-more a { color: #fff; text-underline-offset: 4px; }
+.post-cta .post-cta-more a + a { margin-left: 1.6em; }
 .post-related { max-width: 1040px; margin: 0 auto; padding: 72px 20px 80px; }
 .post-related h2 { font-family: "Noto Serif JP", serif; font-size: 22px; color: var(--navy); text-align: center; margin: 0 0 28px; }
 
