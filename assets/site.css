@@ -284,6 +284,7 @@ footer { background: var(--surface); }
 .genre .work p, .work-feature-text p { text-wrap: pretty; }
 .genre .work { padding: 0; border-top: 0; }
 .genre .work.solo { max-width: 560px; }
+.genre .work.solo + .work.solo { margin-top: 56px; }
 .work-feature { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
 .work-feature .phone { margin: 0; }
 .work-feature-text { padding-top: 4px; }
