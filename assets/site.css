@@ -449,3 +449,14 @@ footer { background: var(--surface); }
 .dl-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: 40px; padding: 24px 28px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .dl-row p { margin: 0; font-size: 15px; color: var(--ink); }
 .dl-row .btn { flex: none; }
+
+/* プライバシーポリシー */
+section.block.policy-section { padding-top: 0; }
+.page-hero.policy-hero { padding-bottom: 40px; }
+.policy { max-width: 46em; }
+.policy h2 { font-family: "Noto Serif JP", serif; font-size: 20px; line-height: 1.5; color: var(--navy); margin: 48px 0 12px; }
+.policy h2:first-child { margin-top: 0; }
+.policy ul { margin: 0 0 1.1em; padding-left: 1.2em; }
+.policy li { margin-bottom: .6em; line-height: 1.9; }
+.policy b { color: var(--navy); }
+.policy .policy-date { margin-top: 48px; font-size: 14px; color: var(--muted); }
